@@ -9,7 +9,8 @@ app.use((_, res, next) => {
 });
 
 app.get("*", (req, res) => {
-  res.send(mockingCase(req.query.text || ""));
+  const text = mockingCase(req.params[0].slice(1) || "");
+  res.send({ text });
 });
 
 app.listen(port, () => {
