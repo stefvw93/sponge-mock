@@ -73,12 +73,12 @@ async function service() {
   });
 }
 
-function mockingCase(str) {
-  return Array.from(str)
-    .map((char) =>
-      Math.round(Math.random()) ? char.toLowerCase() : char.toUpperCase()
-    )
-    .join("");
+function mockingCase(text) {
+  return Array.from(text).map(randomCase).join("");
+}
+
+function randomCase(char) {
+  return Math.random() < 0.5 ? char.toLowerCase() : char.toUpperCase();
 }
 
 function getTextLines(text, maxWidth) {
