@@ -27,6 +27,7 @@ async function service() {
 
   ctx.drawImage(image, 0, 0, imageSize[0], imageSize[1]);
   ctx.font = `${fontSize}px ${font}`;
+  ctx.textAlign = "center";
 
   // server stuff
 
@@ -52,7 +53,11 @@ async function service() {
     ctx.fillStyle = "#000";
 
     getTextLines(text, outputSize[1] - padding * 2).forEach((line, index) => {
-      ctx.fillText(line, padding, imageSize[1] + (index + 1) * lineHeight);
+      ctx.fillText(
+        line,
+        outputSize[0] / 2,
+        imageSize[1] + (index + 1) * lineHeight
+      );
     });
 
     // return file
